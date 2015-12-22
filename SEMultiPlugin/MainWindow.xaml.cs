@@ -3,6 +3,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 using Forms = System.Windows.Forms;
 
 namespace SEMultiPlugin
@@ -17,7 +19,6 @@ namespace SEMultiPlugin
             InitializeComponent();
 
             Persistence.Load();
-            tbPath.Text = Persistence.Settings.GamePath;
             UpdatePluginList();
         }
 
@@ -28,7 +29,6 @@ namespace SEMultiPlugin
             var dialog = new Forms.FolderBrowserDialog();
             dialog.SelectedPath = Persistence.Settings.GamePath;
             dialog.ShowDialog();
-            tbPath.Text = Persistence.Settings.GamePath = dialog.SelectedPath;
             Persistence.Save();
         }
 
@@ -106,12 +106,40 @@ namespace SEMultiPlugin
                 File.Delete(Persistence.Settings.GamePath + @"\" + Persistence.MultiPluginFileName);
             }
         }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void WrapPanel_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            foreach (var child in ((WrapPanel)sender).Children)
+            {
+                if (child is CheckBox)
+                {
+                    var cb = (CheckBox)child;
+                    cb.IsChecked = !cb.IsChecked;
+                }
+            }
+        }
+
+        private void Rectangle_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
         #endregion
+
+
+        private void BuildMenu()
+        {
+            
+        }
 
         private void UpdatePluginList()
         {
-            lbPlugins.ItemsSource = Persistence.Settings.Plugins;
             const string path = Persistence.PluginPath;
+            lbPlugins.ItemsSource = Persistence.Settings.Plugins;
 
             //Create Plugin directory if it doesn't exist.
             if (!Directory.Exists(path))

@@ -5,29 +5,72 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SEMultiPlugin"
         mc:Ignorable="d"
-        Title="SE MultiPlugin" Height="350" Width="525" Background="#FF666666">
+        Title="SE MultiPlugin" Height="300" Width="400" WindowStyle="None" ResizeMode="NoResize">
     <Window.Resources>
         <DataTemplate x:Key="PluginListItemTemplate">
-            <WrapPanel>
-                <CheckBox VerticalAlignment="Center" Focusable="False" IsChecked="{Binding Selected}"/>
-                <Label VerticalAlignment="Center" Content="{Binding DisplayName}"/>
+            <WrapPanel MouseDown="WrapPanel_MouseDown" Focusable="False">
+                <CheckBox VerticalAlignment="Center" IsChecked="{Binding Selected}"/>
+                <Label x:Name="pluginLabel" VerticalAlignment="Top" Content="{Binding DisplayName}" Padding="0" Margin="5,0,0,0"/>
             </WrapPanel>
         </DataTemplate>
+        <SolidColorBrush x:Key="mouseOverColor" Color="#FF5B5B5B"/>
+        <Style x:Key="menuButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#FF3E3E3E"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="125"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource mouseOverColor}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </Window.Resources>
-    <DockPanel>
-        <DockPanel DockPanel.Dock="Top">
-            <Label Content="SE Path:" VerticalAlignment="Center" DockPanel.Dock="Left"/>
-            <Button x:Name="btnBrowsePath" Content="Browse" Margin="5px" Padding="2px" DockPanel.Dock="Right" VerticalAlignment="Center" Click="btnBrowsePath_Click"/>
-            <TextBox x:Name="tbPath" Height="20" Margin="5px"/>
+    <DockPanel VerticalAlignment="Top">
+        <DockPanel DockPanel.Dock="Top" Height="54px" MouseDown="Rectangle_MouseDown">
+            <DockPanel.Background>
+                <LinearGradientBrush EndPoint="1,0" MappingMode="RelativeToBoundingBox" StartPoint="0,0">
+                    <GradientStop Color="#FFBFBFBF" Offset="0.2245"/>
+                    <GradientStop Color="#FF5F5F5F" Offset="1"/>
+                </LinearGradientBrush>
+            </DockPanel.Background>
+            <Image DockPanel.Dock="Left" HorizontalAlignment="Left" Source="Images/productLogo.png"/>
+            <Button BorderThickness="0" DockPanel.Dock="Right" VerticalAlignment="Top" HorizontalAlignment="Right" Height="20" Width="20" Margin="10px" Click="btnExit_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="Images/close.png"/>
+                </Button.Background>
+            </Button>
+            <Label Content="v0.001" VerticalAlignment="Center" FontFamily="Segoe UI Light" FontSize="16"/>
         </DockPanel>
-        <DockPanel>
-            <StackPanel DockPanel.Dock="Right" Orientation="Vertical" Width="100">
-                <Button x:Name="btnReload" Content="Reload List" Margin="5px" Click="btnReload_Click"/>
-                <Button x:Name="btnStart" Content="Launch Game" Margin="5px" Click="btnStart_Click"/>
-                <Button x:Name="btnKill" Content="Kill Game" Margin="5px" Click="btnKill_Click"/>
-                <Button x:Name="btnUninstall" Content="Uninstall SEMP" Margin="5px" Click="btnUninstall_Click"/>
+        <DockPanel DockPanel.Dock="Top" Height="250">
+            <StackPanel x:Name="spMenu" DockPanel.Dock="Left" HorizontalAlignment="Left" Background="#FF3E3E3E">
+                <Button x:Name="btnBrowse" Click="btnBrowsePath_Click" Style="{StaticResource menuButtonStyle}">
+                    <Image Source="Images/MultiPlugin---window_02.png" />
+                </Button>
+                <Button x:Name="btnRefresh" Click="btnReload_Click" Style="{StaticResource menuButtonStyle}">
+                    <Image Source="Images/MultiPlugin---window_04.png" />
+                </Button>
+                <Button x:Name="btnLaunch" Click="btnStart_Click" Style="{StaticResource menuButtonStyle}">
+                    <Image Source="Images/MultiPlugin---window_05.png" />
+                </Button>
+                <Button x:Name="btnKill" Click="btnKill_Click" Style="{StaticResource menuButtonStyle}">
+                    <Image Source="Images/MultiPlugin---window_06.png" />
+                </Button>
+                <Button x:Name="btnUninstall" Click="btnUninstall_Click" Style="{StaticResource menuButtonStyle}">
+                    <Image Source="Images/MultiPlugin---window_07.png" />
+                </Button>
+                <Image Source="Images/MultiPlugin---window_08.png" HorizontalAlignment="Left" Height="30" Width="125" Margin="0,15,0,0"/>
             </StackPanel>
-            <ListBox x:Name="lbPlugins" Margin="5,5,0,5" ItemTemplate="{StaticResource PluginListItemTemplate}"/>
+            <ListBox x:Name="lbPlugins" DockPanel.Dock="Left" ItemTemplate="{StaticResource PluginListItemTemplate}" Background="#FF787878" BorderThickness="0"/>
         </DockPanel>
     </DockPanel>
 </Window>
