@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Plugin_Modder_UI.Properties
+namespace SEMultiPlugin.Properties
 {
 
 

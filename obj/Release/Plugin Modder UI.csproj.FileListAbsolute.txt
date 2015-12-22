@@ -1,9 +1,0 @@
-C:\Users\Duncan\Documents\Visual Studio 2015\Projects\Plugin Modder UI\Plugin Modder UI\bin\Release\Plugin Modder UI.exe.config
-C:\Users\Duncan\Documents\Visual Studio 2015\Projects\Plugin Modder UI\Plugin Modder UI\bin\Release\Plugin Modder UI.exe
-C:\Users\Duncan\Documents\Visual Studio 2015\Projects\Plugin Modder UI\Plugin Modder UI\bin\Release\Plugin Modder UI.pdb
-C:\Users\Duncan\Documents\Visual Studio 2015\Projects\Plugin Modder UI\Plugin Modder UI\obj\Release\Plugin Modder UI.csprojResolveAssemblyReference.cache
-C:\Users\Duncan\Documents\Visual Studio 2015\Projects\Plugin Modder UI\Plugin Modder UI\obj\Release\Plugin_Modder_UI.UI.resources
-C:\Users\Duncan\Documents\Visual Studio 2015\Projects\Plugin Modder UI\Plugin Modder UI\obj\Release\Plugin_Modder_UI.Properties.Resources.resources
-C:\Users\Duncan\Documents\Visual Studio 2015\Projects\Plugin Modder UI\Plugin Modder UI\obj\Release\Plugin Modder UI.csproj.GenerateResource.Cache
-C:\Users\Duncan\Documents\Visual Studio 2015\Projects\Plugin Modder UI\Plugin Modder UI\obj\Release\Plugin Modder UI.exe
-C:\Users\Duncan\Documents\Visual Studio 2015\Projects\Plugin Modder UI\Plugin Modder UI\obj\Release\Plugin Modder UI.pdb
