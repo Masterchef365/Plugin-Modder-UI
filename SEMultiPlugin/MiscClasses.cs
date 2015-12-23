@@ -56,7 +56,7 @@ namespace SEMultiPlugin
     {
         private const string ConfigFileName = @"MultiPlugin.cfg";
         public const string PluginPath = @"Plugins\";
-        public const string MultiPluginFileName = @"SEMultiPlugin.dll";
+        public const string MultiPluginFileName = @"MultiPlugin2.dll";
         public static UserPrefrences Settings = new UserPrefrences();
 
         public static void LoadSettings()
