@@ -78,7 +78,7 @@ namespace SEMultiPlugin
             //Try to start Space Engineers.
             try
             {
-                Process.Start(Persistence.Settings.GamePath + @"\SpaceEngineers.exe", "-plugin SEMultiPlugin.dll");
+                Process.Start(Persistence.Settings.GamePath + @"\SpaceEngineers.exe", "-plugin " + Persistence.MultiPluginFileName);
             }
             catch (Exception ex)
             {
