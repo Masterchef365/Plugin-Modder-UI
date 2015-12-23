@@ -59,7 +59,7 @@ namespace SEMultiPlugin
         public const string MultiPluginFileName = @"SEMultiPlugin.dll";
         public static UserPrefrences Settings = new UserPrefrences();
 
-        public static void Load()
+        public static void LoadSettings()
         {
             if (File.Exists(ConfigFileName))
             {
@@ -70,7 +70,7 @@ namespace SEMultiPlugin
             }
         }
 
-        public static void Save()
+        public static void SaveSettings()
         {
             XmlSerializer serializer = new XmlSerializer(Settings.GetType());
             FileStream fs = new FileStream(ConfigFileName, FileMode.Create);

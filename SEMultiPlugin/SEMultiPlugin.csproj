@@ -56,7 +56,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="UserPrefs.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -71,6 +70,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MiscClasses.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -101,14 +101,14 @@
     <Resource Include="Images\productLogo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\MultiPlugin---window_02.png" />
-    <Resource Include="Images\MultiPlugin---window_04.png" />
-    <Resource Include="Images\MultiPlugin---window_05.png" />
-    <Resource Include="Images\MultiPlugin---window_06.png" />
-    <Resource Include="Images\MultiPlugin---window_07.png" />
+    <Resource Include="Images\selectpath.png" />
+    <Resource Include="Images\refreshlist.png" />
+    <Resource Include="Images\startgame.png" />
+    <Resource Include="Images\killgame.png" />
+    <Resource Include="Images\uninstall.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\MultiPlugin---window_08.png" />
+    <Resource Include="Images\disclaimer.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\close.png" />

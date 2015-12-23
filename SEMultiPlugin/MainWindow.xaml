@@ -54,21 +54,21 @@
         <DockPanel DockPanel.Dock="Top" Height="250">
             <StackPanel x:Name="spMenu" DockPanel.Dock="Left" HorizontalAlignment="Left" Background="#FF3E3E3E">
                 <Button x:Name="btnBrowse" Click="btnBrowsePath_Click" Style="{StaticResource menuButtonStyle}">
-                    <Image Source="Images/MultiPlugin---window_02.png" />
+                    <Image Source="Images/selectpath.png" />
                 </Button>
                 <Button x:Name="btnRefresh" Click="btnReload_Click" Style="{StaticResource menuButtonStyle}">
-                    <Image Source="Images/MultiPlugin---window_04.png" />
+                    <Image Source="Images/refreshlist.png" />
                 </Button>
                 <Button x:Name="btnLaunch" Click="btnStart_Click" Style="{StaticResource menuButtonStyle}">
-                    <Image Source="Images/MultiPlugin---window_05.png" />
+                    <Image Source="Images/startgame.png" />
                 </Button>
                 <Button x:Name="btnKill" Click="btnKill_Click" Style="{StaticResource menuButtonStyle}">
-                    <Image Source="Images/MultiPlugin---window_06.png" />
+                    <Image Source="Images/killgame.png" />
                 </Button>
                 <Button x:Name="btnUninstall" Click="btnUninstall_Click" Style="{StaticResource menuButtonStyle}">
-                    <Image Source="Images/MultiPlugin---window_07.png" />
+                    <Image Source="Images/uninstall.png" />
                 </Button>
-                <Image Source="Images/MultiPlugin---window_08.png" HorizontalAlignment="Left" Height="30" Width="125" Margin="0,15,0,0"/>
+                <Image Source="Images/disclaimer.png" HorizontalAlignment="Left" Height="30" Width="125" Margin="0,15,0,0"/>
             </StackPanel>
             <ListBox x:Name="lbPlugins" DockPanel.Dock="Left" ItemTemplate="{StaticResource PluginListItemTemplate}" Background="#FF787878" BorderThickness="0"/>
         </DockPanel>

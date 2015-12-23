@@ -18,7 +18,7 @@ namespace SEMultiPlugin
         {
             InitializeComponent();
 
-            Persistence.Load();
+            Persistence.LoadSettings();
             UpdatePluginList();
         }
 
@@ -27,14 +27,15 @@ namespace SEMultiPlugin
         {
             //Open a folder select dialog and set the game path to the result.
             var dialog = new Forms.FolderBrowserDialog();
+            dialog.Description = "Select the Bin64 folder in your Space Engineers directory and click OK.";
             dialog.SelectedPath = Persistence.Settings.GamePath;
             dialog.ShowDialog();
-            Persistence.Save();
+            Persistence.SaveSettings();
         }
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-            Persistence.Save();
+            Persistence.SaveSettings();
 
             string gamePluginDirectory = Persistence.Settings.GamePath + @"\Plugins";
 
@@ -44,6 +45,13 @@ namespace SEMultiPlugin
             {
                 File.Delete(MultiPluginFile);
             }
+
+            if (!File.Exists(Persistence.MultiPluginFileName))
+            {
+                MessageBox.Show("MultiPlugin DLL not found!", "File not found");
+                return;
+            }
+
             File.Copy(Persistence.MultiPluginFileName, MultiPluginFile);
 
             //Create remote plugin directory if it doesn't exist.
@@ -129,12 +137,6 @@ namespace SEMultiPlugin
             DragMove();
         }
         #endregion
-
-
-        private void BuildMenu()
-        {
-            
-        }
 
         private void UpdatePluginList()
         {
